@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block title %}Путешествие на Самуи{% endblock %}
+{% block breadcrumb %}{% endblock %}
+{% block container %}
+    {{ include('components/jumbotron.html.twig') }}
+    {% for row in categories|batch(2) %}
+        <div class="row mb-2">
+            {% for category in row %}
+                {{ include('components/index_category_preview.html.twig', {category: category}) }}
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}

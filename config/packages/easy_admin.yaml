@@ -1,0 +1,40 @@
+easy_admin:
+    entities:
+        Article:
+            class: App\Entity\Article
+            list:
+                fields:
+                    - title
+                    - slug
+                    - { property: 'image', type: 'image', base_path: '%app.path.article_images%' }
+                    - category
+            form:
+                fields:
+                    - title
+                    - slug
+                    - category
+                    - { property: 'imageFile', type: 'vich_image' }
+                    - shortText
+                    - { property: 'text', css_class: 'awesome-ckeditor', type: 'textarea' }
+        Category:
+            class: App\Entity\Category
+            list:
+                fields:
+                    - name
+                    - slug
+                    - { property: 'image', type: 'image', base_path: '%app.path.category_images%' }
+                    - articles
+            show:
+                fields:
+                    - { property: 'image', type: 'image', base_path: '%app.path.category_images%' }
+            form:
+                fields:
+                    - name
+                    - slug
+                    - description
+                    - { property: 'imageFile', type: 'vich_image' }
+    design:
+        assets:
+            js:
+                - '/ckeditor5/ckeditor.js'
+                - '/ckeditor5/ckeditor-init.js'

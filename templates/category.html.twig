@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ category.name }}{% endblock %}
+{% block breadcrumb %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background-color: transparent">
+            <li class="breadcrumb-item"><a href="{{ path('index') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ category.name }}</li>
+        </ol>
+    </nav>
+{% endblock %}
+{% block container %}
+    <div class="row">
+        {% for article in category.articles %}
+           {{ include(
+                'components/index_articles_preview.html.twig',
+                {article: article, category: category}
+           ) }}
+        {% endfor %}
+    </div>
+{% endblock %}

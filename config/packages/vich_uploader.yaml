@@ -1,0 +1,13 @@
+parameters:
+    app.path.category_images: /uploads/images/category
+    app.path.article_images: /uploads/images/article
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        category_images:
+            uri_prefix:         '%app.path.category_images%'
+            upload_destination: '%kernel.root_dir%/../public/uploads/images/category'
+        article_images:
+            uri_prefix:         '%app.path.article_images%'
+            upload_destination: '%kernel.root_dir%/../public/uploads/images/article'

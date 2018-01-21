@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/article.css') }}">
+{% endblock %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block breadcrumb %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background-color: transparent">
+            <li class="breadcrumb-item"><a href="{{ path('index') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('category_index', {slug: category.slug}) }}">{{ category.name }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ article.title }}</li>
+        </ol>
+    </nav>
+{% endblock %}
+{% block container %}
+    <article>
+        <img
+                class="rounded float-left img-fluid img-thumbnail main-image" style="margin: 0 0.5rem 0.5rem 0;"
+                alt="{{ article.title }}"
+                src="{{ vich_uploader_asset(article, 'imageFile')|imagine_filter('article_preview') }}"
+        >
+        {{ article.text|raw }}
+    </article>
+{% endblock %}
