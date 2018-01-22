@@ -1,0 +1,17 @@
+{% extends 'category.html.twig' %}
+{% block container %}
+    <div style="margin: 0 auto 1rem auto;"><div id="adgshp-226262980"></div></div>
+    <div class="row">
+        {% for article in category.articles %}
+            {{ include(
+            'components/index_articles_preview.html.twig',
+            {article: article, category: category}
+            ) }}
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="//cdn0.agoda.net/images/sherpa/js/sherpa_init1_07.min.js"></script><script type="text/javascript">
+    var stg = new Object(); stg.crt="42182999776337";stg.version="1.04"; stg.id=stg.name="adgshp-226262980"; stg.width="910px"; stg.height="112px";stg.ReferenceKey="JCNdZABtw0Wvuz/wxLPTpg=="; stg.Layout="WideStatic"; stg.Language="ru-ru";stg.Cid="1798306";  stg.City="17198";stg.OverideConf=false; new AgdSherpa(stg,3).initialize();
+</script>
+{% endblock %}
